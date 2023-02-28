@@ -17,7 +17,6 @@ def convert(im, n) :
 
 uploaded_file = st.file_uploader("Choose a file")
 if uploaded_file is not None:
-    st.write(uploaded_file)
     im = Image.open(uploaded_file).convert('RGB')
     st.image(im, caption='Your image')
     nc = st.slider('number of colors', min_value=2, max_value=12, value=6)
@@ -28,6 +27,4 @@ if uploaded_file is not None:
             with j :
                 hex_val = '#%02x%02x%02x' % tuple(pal[i])
                 st.color_picker(hex_val, hex_val)
-#    try:
-#    except:
-#        st.error("The file you uploaded does not seem to be a valid image. Try uploading a png or jpg file.")
+
