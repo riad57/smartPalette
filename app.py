@@ -4,7 +4,6 @@
 import streamlit as st
 from PIL import Image
 import kmeans
-from color_palette import Color
 
 @st.cache_data
 def convert(im, n) :
@@ -27,7 +26,7 @@ if uploaded_file is not None:
         col = st.columns(len(pal))
         for i, j in enumerate(col) :    
             with j :
-                hex_val = f'#{Color(tuple(pal[i])).hex()}'
+                hex_val = '#%02x%02x%02x' % tuple(pal[i])
                 st.color_picker(hex_val, hex_val)
 #    try:
 #    except:
